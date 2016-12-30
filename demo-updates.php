@@ -3,7 +3,7 @@
 Plugin Name: WP demo updates
 Plugin URI: https://github.com/oterox/demo-updates
 Description: Demo plugin updates
-Version: 0.1
+Version: 0.2
 Author: Oterox
 Author URI: http://grillcode.es
 License: GPLv2
