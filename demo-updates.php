@@ -5,7 +5,7 @@
  * Plugin Name:       Demo actualización
  * Plugin URI:        http://grillcode.es/
  * Description:       Esto es la descripción
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Javier Otero
  * Author URI:        http://grillcode.es/
  * License:           GPL-2.0+
@@ -45,7 +45,7 @@ function tgm_updater_plugin_load() {
 
 add_action('admin_menu', 'gc_add_menu');
 function gc_add_menu() {
-	add_menu_page('Demo Actualización', 'Demo', 'administrator', 'gc-plugin-settings', 'gc_plugin_settings_page', 'dashicons-admin-generic');
+	add_menu_page('Demo Actualización', 'Demo 1.0.2', 'administrator', 'gc-plugin-settings', 'gc_plugin_settings_page', 'dashicons-admin-generic');
 }
 
 function gc_plugin_settings_page() {
