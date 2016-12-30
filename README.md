@@ -5,6 +5,12 @@ Ejemplo de actualización de plugin
 
 ## Changelog
 
+### 0.4 
+* Añadido menu
+
+### 0.3 
+* Pruebas
+
 ### 0.2 
 * Pruebas
 
