@@ -3,7 +3,7 @@
 Plugin Name: WP demo updates
 Plugin URI: https://github.com/oterox/demo-updates
 Description: Demo plugin updates
-Version: 0.0
+Version: 0.1
 Author: Oterox
 Author URI: http://grillcode.es
 License: GPLv2
@@ -17,7 +17,7 @@ function gc_demo_updates_init() {
 
 	define( 'WP_GITHUB_FORCE_UPDATE', true );
 
-	if ( is_admin() ) { 
+	if ( is_admin() ) {
 
 		$config = array(
 			'slug' => plugin_basename( __FILE__ ),
