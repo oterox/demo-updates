@@ -38,3 +38,11 @@ function gc_demo_updates_init() {
 	}
 
 }
+
+add_action('admin_menu', 'gc_add_menu');
+function gc_add_menu() {
+	add_menu_page('Demo Actualización', 'Demo 0.3', 'administrator', 'gc-plugin-settings', 'gc_plugin_settings_page', 'dashicons-admin-generic');
+}
+function gc_plugin_settings_page() {
+  // bla bla bla
+}
