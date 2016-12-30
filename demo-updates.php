@@ -1,53 +1,40 @@
 <?php
-/**
- * Demo actualización plugin
- *
- * Plugin Name:       Demo actualización
- * Plugin URI:        http://grillcode.es/
- * Description:       Esto es la descripción
- * Version:           1.0.2
- * Author:            Javier Otero
- * Author URI:        http://grillcode.es/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/tommcfarlin/page-template-example/
- */
+/*
+Plugin Name: WP demo updates
+Plugin URI: https://github.com/oterox/demo-updates
+Description: Demo plugin updates
+Version: 0.0
+Author: Oterox
+Author URI: http://grillcode.es
+License: GPLv2
+*/
 
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
 
-add_action( 'init', 'tgm_updater_plugin_load' );
+add_action( 'init', 'gc_demo_updates_init' );
+function gc_demo_updates_init() {
 
-function tgm_updater_plugin_load() {
+	include_once 'updater.php';
 
-    if ( ! is_admin() ) {
-        return;
-    }
+	define( 'WP_GITHUB_FORCE_UPDATE', true );
 
-    if ( ! class_exists( 'TGM_Updater' ) ) {
-        require plugin_dir_path( __FILE__ ) . 'class-tgm-updater.php';
-    }
+	if ( is_admin() ) { 
 
-    $args = array(
-        'plugin_name' => 'Demo Updates',
-        'plugin_slug' => 'demo-updates',
-        'plugin_path' => plugin_basename( __FILE__ ),
-        'plugin_url'  => trailingslashit( WP_PLUGIN_URL ) . 'demo-updates',
-        'remote_url'  => 'https://github.com/oterox/demo-updates',
-        'version'     => '1.0.0',
-        'key'         => false
-    );
-    $tgm_updater = new TGM_Updater( $args );
+		$config = array(
+			'slug' => plugin_basename( __FILE__ ),
+			'proper_folder_name' => 'demo-updates',
+			'api_url' => 'https://api.github.com/repos/oterox/demo-updates',
+			'raw_url' => 'https://raw.github.com/oterox/demo-updates/master',
+			'github_url' => 'https://github.com/oterox/demo-updates',
+			'zip_url' => 'https://github.com/oterox/demo-updates/archive/master.zip',
+			'sslverify' => true,
+			'requires' => '3.0',
+			'tested' => '3.3',
+			'readme' => 'README.md',
+			'access_token' => '',
+		);
 
-}
+		new WP_GitHub_Updater( $config );
 
-add_action('admin_menu', 'gc_add_menu');
-function gc_add_menu() {
-	add_menu_page('Demo Actualización', 'Demo 1.0.2', 'administrator', 'gc-plugin-settings', 'gc_plugin_settings_page', 'dashicons-admin-generic');
-}
+	}
 
-function gc_plugin_settings_page() {
-  // bla bla bla
 }
